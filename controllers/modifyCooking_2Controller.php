@@ -28,8 +28,10 @@ class modifyCooking_2Controller extends Controller{
                 $imgId = $row['picture'];
             }
             //修改
+            $make = $_POST['make'];//\n轉<br>
+            $make = nl2br($make);
             $grammer = $user->changeMenu($menuId,$_POST['dishName'],$_SESSION['account'],
-                $imgId,$_POST['difficult'],$_POST['class'],$time,$_POST['make'],$_POST['ps'],
+                $imgId,$_POST['difficult'],$_POST['class'],$time,$make,$_POST['ps'],
                 $_POST['stuff'],$menuId);
             echo "<script>alert('修改成功!!');location.href='/EasyMVC/repice/hello';</script>";
         }

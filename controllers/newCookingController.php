@@ -21,8 +21,10 @@ class newCookingController extends Controller{
             move_uploaded_file($_FILES['file']['tmp_name'],'image/'.$imgId);
             date_default_timezone_set('Asia/Taipei');
             $time = date("Y-m-d H:i:s");
+            $make = $_POST['make'];//\n轉<br>
+            $make = nl2br($make);
             $user->setMenu($lastId,$_POST['dishName'],$_SESSION['account'],$imgId
-            ,$_POST['difficult'],$_POST['class'],$time,$_POST['make'],$_POST['ps'],$_POST['stuff']);
+            ,$_POST['difficult'],$_POST['class'],$time,$make,$_POST['ps'],$_POST['stuff']);
             echo "<script>alert('新增完成');location.href='/EasyMVC/repice/hello';</script>";
         }
     }
