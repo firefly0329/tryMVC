@@ -1,0 +1,165 @@
+#wrapper{
+    width: 100vw;
+    height: 1300px;
+
+}
+/*========== article ==========*/
+article{
+    height: 1300px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    /*background-color: #EEEBEB;*/
+    /*display: none!important;*/
+    -webkit-transform-origin: left top;
+    transition: all .4s ease-in-out 0s;
+    overflow: hidden;
+}
+
+.btn_next{
+    /*display: none;*/
+    -webkit-transform : rotateZ(90deg) translate(0px, 0);
+    
+    transition: all .7s ease-in-out 0s;
+}
+.img{
+   width: 100%; 
+   height: 90vh;
+   margin: 0;
+   padding: 0;
+}
+secition{
+    padding: 1%;
+}
+secition a{
+    display: block;
+    float: left;
+    width: 2.4em;
+    height: 1.4em;
+    font-size: 1.2em;
+    text-align: center; 
+    background-color: #260300;
+    color: #fff;
+    border-radius: 5%;
+    margin: 0 0.5em;
+    cursor: pointer;
+}
+.addMessage input[type='text']{
+    width: 80%;
+    height: 1.9em;
+}
+
+/*========== fix ==========*/
+.fix{
+    position: fixed;
+    right: 1%;
+    bottom: 2%;
+}
+.fix div{
+    height: 60px;
+    width: 60px;
+    background-color: red;
+    color: white;
+    border-radius: 10%;
+    text-align: center;
+    line-height: 60px;
+    font-size: 1.2em;
+    margin-top: 5px;
+    cursor: pointer;
+}
+/*========== menu ==========*/
+.menuBtn{
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    height: 50px;
+    width: 50px;
+    background-color: #4f9f64;
+    color: #0f2f03;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 30px;
+    line-height: 50px;
+    text-align: center;
+}
+.menuBlock{
+    position: fixed;
+    top: 0px;
+    right: -450px;
+    height: 400px;
+    width: 450px;
+    background-color: rgba(0,0,0,0.7);
+    padding: 80px 50px 50px 50px;
+    transition: all .2s linear;
+    
+}
+.menuBlock_btn{
+    transform: translateX(-450px);
+    
+}
+.menuBlock select{
+    display: block;
+    float: left;
+    width: 100%;
+    height: 30px;
+    font-size: 20px;
+}
+#changeClassBtn{
+    display: block;
+    float: left;
+    height: 30px;
+    width: 50px;
+    background-color: #ccc;
+    text-align: center;
+    line-height:  30px;
+    border-radius: 2px;
+    cursor: pointer; 
+    margin-left: 5px;
+    font-size: 20px 
+}
+#changeClassBtn:hover{
+    background-color: #555;
+    color: white;
+}
+.menuBlock form input[name="login"]{
+    height: 40px;
+    width: 120px;
+    font-size: 25px;
+    background-color: #ccc;
+    margin: 50px 0px 0 110px;
+    border-radius: 2px;
+}
+.menuBlock form input[name="logout"]{
+    height: 40px;
+    width: 120px;
+    font-size: 25px;
+    background-color: #ccc;
+    margin: 50px 0px 0 110px;
+    border-radius: 2px;
+}
+.menuBlock form input[name="login"]:hover{
+    background-color: #555;
+    color: white;
+}
+.menuBlock form input[name="logout"]:hover{
+    background-color: #555;
+    color: white;
+}
+.menuBlock a{
+    display: block;
+    background-color: #ccc;
+    color: black;
+    margin: 50px 0px 0 110px;
+    font-size: 25px;
+    height: 40px;
+    width: 120px;
+    line-height: 40px;
+    text-align: center; 
+    border-radius: 2px;
+    
+}
+.menuBlock a:hover{
+    background-color: #555;
+    color: white;
+    
+}
