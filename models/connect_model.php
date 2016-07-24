@@ -1,6 +1,6 @@
 <?php 
 require_once('db.php');
-    class connect_modle{
+    class connect_model{
         function getAllMenu(){
             $db1 = new db;
             $result = $db1->link("select * from menu");

@@ -13,7 +13,7 @@ class modifyCooking_2_model{
         `writer`='$writer',`picture`='$picture',`difficult`='$difficult',`class`='$class',
         `time`='$time',`make`='$make',`ps`='$ps',`stuff`='$stuff' WHERE id like $cookingId";
         // exit;
-        $result = $db2->link($grammer);
+        $db2->link($grammer);
     }
 }
 

@@ -14,7 +14,7 @@
     
     function mainProgram($user,$messageId,$menuId){
         $user->deleteMsg($messageId);
-        header("location: /EasyMVC/message/hello/10");
+        header("location: /EasyMVC/message/hello/$menuId");
     }
 }
 

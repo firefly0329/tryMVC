@@ -3,9 +3,9 @@ session_start();
 
 class loginController extends Controller {
     
-    function hello($name) {
+    function hello() {
         $user = $this->model("login_model");
-        $user->name = $name;
+        // $user->name = $name;
         $this->view("Home/login", $user);
         // echo "Hello! $user->name";
         $this->mainProgram($user);
@@ -23,10 +23,10 @@ class loginController extends Controller {
         }
         
         if(isset($_POST["register"])){
-            header("location: /EasyMVC/register/hello/123");
+            header("location: /EasyMVC/register/hello");
         }
         if(isset($_POST["visitor"])){
-            header("location: /EasyMVC/repice/hello/123");
+            header("location: /EasyMVC/repice/hello");
         }
     }
     

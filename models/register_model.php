@@ -14,8 +14,7 @@ class register_model{
         $grammer = "insert into member (id, account, password, name) 
             value($id, '$account', '$password', '$name')";
         $db2 = new db;
-        $result = $db2->link($grammer);
-        return $result;
+        $db2->link($grammer);
     }
 }
 

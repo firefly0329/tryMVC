@@ -21,14 +21,12 @@ require_once('db.php');
             $db3 = new db;
             $grammer = "insert into message (messageWriter, messageContent, time, menuId)
                     values ('$messageWriter', '$messageContent', '$time', $letter )";
-            $result = $db3->link($grammer);
-            return $result;
+            $db3->link($grammer);
         }
         function deleteMessage($menuId){
             $db4 = new db;
             $grammer = "DELETE FROM `message` WHERE id like $menuId";
-            $result = $db4->link($grammer);
-            return $result;
+            $db4->link($grammer);
         }
         
         

@@ -2,9 +2,9 @@
 session_start();
 class registerController extends Controller {
     
-    function hello($name) {
+    function hello() {
         $user = $this->model("register_model");
-        $user->name = $name;
+        // $user->name = $name;
         $this->view("Home/register", $user);
         $this->mainProgram($user);
     }
@@ -12,10 +12,7 @@ class registerController extends Controller {
     //主程式
     function mainProgram($user){
         if(isset($_POST["submit"])){
-            //db
-            // $linkdb = new register_modle;
-            // $result = $linkdb->getMember();
-            
+
             $result = $user->getMember();
         
             $lastId = $this->repeat($result);//檢查帳號.名稱是否重複，並回傳最後一筆資料id

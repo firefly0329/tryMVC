@@ -59,7 +59,7 @@ $row2 = mysql_fetch_assoc($result2);
             function deleteMessage(x,y){
                 if(confirm('您確定要刪除本留言?')){
                     url = "/EasyMVC/deleteMessage/hello/"+ x +"/" + y;
-                    alert(url);
+                    // alert(url);
                     alert("刪除成功");
                     location.href = url;
                 }
