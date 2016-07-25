@@ -1,1 +1,1 @@
-# tryMVC
+MVC架構(用老師上課交的EasyMVC改成)
