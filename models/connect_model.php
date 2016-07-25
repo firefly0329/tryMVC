@@ -11,7 +11,7 @@ require_once('db.php');
             $result = $db2->link("select * from menu where class like '$class'");
             return $result;
         }
-        function getMessage($class){
+        function getMessage(){
             $db2 = new db;
             $result = $db2->link("select * from message order by time desc");
             return $result;

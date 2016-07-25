@@ -5,24 +5,23 @@ class messageController extends Controller {
     
     function hello($letter) {
         if(!isset($_SESSION['account'])){
-        echo "<script>alert('請先登入');location.href='/EasyMVC/login/hello/1';</script>";
+        echo "<script>alert('請先登入');location.href='/EasyMVC/login/hello';</script>";
         }
-        // $letter = $_GET["letter"];
+
         $user = $this->model("message_model");
-        // $user->name = $name;
+        // 傳值到view
         $result = $user->getMessage($letter);
         $result2 = $user->getMenu($letter);
         $this->view("Home/message", Array($result,$result2,$letter));
-        // echo "Hello! $user->name";
+
         
         $this->mainProgram($user,$letter);
     }
     
     function mainProgram($user,$letter) {
-        
-        
         //主程式--新增留言
         if(isset($_POST['newMessageBtn'])){
+            //time
             date_default_timezone_set('Asia/Taipei');
             $time = date("Y-m-d H:i:s");
             $_POST['message'] = str_replace("'","&#39",$_POST['message']);//將'換成&#39

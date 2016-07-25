@@ -6,21 +6,21 @@ class modifyCooking_2Controller extends Controller{
         $user = $this->model("modifyCooking_2_model");
         $result = $user->getMenu($menuId);
         $row = mysql_fetch_assoc($result);
+        if($_SESSION['account'] != $row['writer']){
+            echo "<script>alert('您不是本篇作者');location.href='/EasyMVC/repice/hello';</script>";
+        }
         $row['make'] = preg_replace('/<br\\s*?\/??>/i','',$row['make']);
         
         $this->view("Home/modifyCooking_2",Array($row));
         
-    //     $this->mainProgram($row,$user,$menuId);
-    // }
-    // function mainProgram($row,$user,$menuId){
-        
-        
+        $this->mainProgram($row,$user,$menuId);
+    }
+    
+    function mainProgram($row,$user,$menuId){
         //判斷是否為作者
-        if($_SESSION['account'] != $row['writer']){
-            echo "<script>alert('您不是本篇作者');location.href='/EasyMVC/repice/hello';</script>";
-        }
+        
         if(isset($_POST["submit"])){
-            $imgId = $_GET['cookingId'] . substr(strrchr($_FILES['file']['name'], '.'), 0);
+            $imgId = $menuId . substr(strrchr($_FILES['file']['name'], '.'), 0);
             move_uploaded_file($_FILES['file']['tmp_name'],'image/'.$imgId);
             $time = date("Y/m/d");
             //判斷有沒有修改圖片

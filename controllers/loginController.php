@@ -14,9 +14,6 @@ class loginController extends Controller {
     function mainProgram($user){
         //主程式
         if(isset($_POST["login"])){
-            //db;
-            // $login_modle = new login_modle;
-            // $result = $login_modle->getMember();
             $result = $user->getMember();
             
             echo $this->login($result); //登入檢查

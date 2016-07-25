@@ -5,15 +5,16 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link rel="stylesheet" type="text/css" href="/EasyMVC/css/required.css" media="screen" />
     </head>
     <body>
-        <p style="margin-left:70px;">申請會員</p>
+        <p style="margin-left:90px;">申請會員</p>
         <form method="post">
-            <lable>帳號：</lable>
+            <label required>帳號:</label>
             <input type="text" name="account" placeholder=" 申請帳號 " required="required" pattern="[A-z,0-9]{3,20}"/><br><br>
-            <lable>密碼：</lable>
+            <label required>密碼:</label>
             <input type="password" name="password" placeholder=" 申請密碼 " required="required" pattern="[A-z,0-9]{3,20}"/><br><br>
-            <lable>名稱：</lable>
+            <label required>名稱:</label>
             <input type="text" name="name" placeholder=" 您的稱呼 " required="required" pattern="[A-z,0-9]{3,20}"/><br><br>
             <input type="submit" value="送出申請" name="submit" style="margin-left:70px;"/>
         </form>

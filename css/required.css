@@ -1,0 +1,10 @@
+label[required]{
+    /*color: red;*/
+}
+label[required]:before{
+    content: "*";
+    /*display: block;*/
+    /*float: right;*/
+    color: red;
+    
+}

@@ -12,7 +12,7 @@ $row = $data[0];
         <link rel="stylesheet" type="text/css" href="/EasyMVC/css/firefly_frame.css" media="screen">
         <link rel="stylesheet" type="text/css" href="/EasyMVC/css/UI.css" media="screen">
         <link rel="stylesheet" type="text/css" href="/EasyMVC/css/newCooking.css" media="screen">
-        <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0">
+        <meta name="viewport" content="width=device-width, user-scalabel=no, initial-scale=1.0">
         <script type="text/javascript" src="js/jquery-1.11.3.min.js"></script>
     </head>
     <body>
@@ -20,12 +20,12 @@ $row = $data[0];
         <form method="post" enctype="multipart/form-data">
             
             <div class="pd-t-3">
-                <lable class="">菜名:</lable>
+                <label class="">菜名:</label>
                 <input class="" type="text" name="dishName" required="required" value="<?php echo $row['dishName']; ?>"/>
             </div>
                 
             <div class="w-100">
-                <lable>難度:</lable>
+                <label>難度:</label>
                 <!--<input type="text" name="difficult" required="required" placeholder=" 難易度 "/>-->
                 <select name="difficult" class="">
     		        <option value="1" name="1" id="1">1</option>
@@ -37,7 +37,7 @@ $row = $data[0];
             </div>
                 
             <div class="w-100">
-                <lable>分類:</lable>
+                <label>分類:</label>
                 <!--<input type="text" name="class" required="required" placeholder=" 分類 "/>-->
                 <select name="class" class="">
 		        <option value="主食">主食</option>
@@ -48,22 +48,22 @@ $row = $data[0];
             </div>
             
             <div class="w-100">
-                <lable>圖片:</lable>
+                <label>圖片:</label>
                 <input type="file" name="file"/>
             </div>
             
             <div class="w-100">
-                <lable class="">材料:</lable>
+                <label class="">材料:</label>
                 <textarea name="stuff" maxlength="200" required="required"><?php echo $row['stuff']; ?></textarea>
             </div>
                 
             <div class="w-100">
-                <lable>製作過程:</lable>
+                <label>製作過程:</label>
                 <textarea name="make" maxlength="2000" required="required"><?php echo $row['make']; ?></textarea>
             </div>
                 
             <div class="w-100">
-                <lable>小提醒:</lable>
+                <label>小提醒:</label>
                 <textarea name="ps" maxlength="200" ><?php echo $row['ps']; ?></textarea>
             </div>
             

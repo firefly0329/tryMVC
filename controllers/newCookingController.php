@@ -19,9 +19,11 @@ class newCookingController extends Controller{
             $lastId = $lastId+1;
             $imgId = $lastId . substr(strrchr($_FILES['file']['name'], '.'), 0);
             move_uploaded_file($_FILES['file']['tmp_name'],'image/'.$imgId);
+            //time
             date_default_timezone_set('Asia/Taipei');
             $time = date("Y-m-d H:i:s");
-            $make = $_POST['make'];//\n轉<br>
+            //\n轉<br>
+            $make = $_POST['make'];
             $make = nl2br($make);
             $user->setMenu($lastId,$_POST['dishName'],$_SESSION['account'],$imgId
             ,$_POST['difficult'],$_POST['class'],$time,$make,$_POST['ps'],$_POST['stuff']);

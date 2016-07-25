@@ -1,7 +1,7 @@
 <?php
 $result = $data[0];
 $result2 = $data[1];
-$letter = $data[2];
+$munuId = $data[2];
 $row2 = mysql_fetch_assoc($result2);
  ?>
 <html>
@@ -17,6 +17,7 @@ $row2 = mysql_fetch_assoc($result2);
     <body>
         <div id="wrapper" class="cf pd-b-5">
             <h1 class="pd-t-1">留言</h1>
+            <!--============= 顯示菜單 =============-->
             <div class="menu pd-t-3"><!--menu-->
                 <div class="w-50 float-l">
                     <img src='/EasyMVC/image/<?php echo $row2 ['picture']; ?>' class=""></img>
@@ -30,7 +31,7 @@ $row2 = mysql_fetch_assoc($result2);
                     
                 </div>
             </div>
-            
+            <!--============= 留言 =============-->
             <article class="grid-12 pd-t-5">
                 <h2>留言內容</h2>
                 <?php while($row = mysql_fetch_assoc($result)){ ?>
@@ -38,7 +39,7 @@ $row2 = mysql_fetch_assoc($result2);
                         <p class=""><?php echo "留言時間：{$row['time']}　　　作者：{$row['messageWriter']}　　　留言內容：{$row['messageContent']}"; ?></p>
                         
                         <?php if($_SESSION['account'] == $row['messageWriter']): ?>
-                        <button class="" onclick="deleteMessage(<?php echo $row['id'] ?>,<?php echo $letter ?>)">刪除</button>
+                        <button class="" onclick="deleteMessage(<?php echo $row['id'] ?>,<?php echo $munuId ?>)">刪除</button>
                         <?php endif ?>
                     </div>
                     <hr>

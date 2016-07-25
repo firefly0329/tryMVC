@@ -3,11 +3,6 @@
     
     function hello($messageId,$menuId) {
         $user = $this->model("deleteMessage_model");
-        // $user->name = $name;
-
-        // $this->view("Home/deleteMessage", Array());
-        // echo "Hello! $user->name";
-        
         $this->mainProgram($user,$messageId,$menuId);
     }
     

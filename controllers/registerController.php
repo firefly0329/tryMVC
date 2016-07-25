@@ -21,11 +21,11 @@ class registerController extends Controller {
                 $user->setMember($lastId, $_POST['account'], $_POST['password'], $_POST['name']);
                 
                 $_SESSION['account'] = $_POST['name'];
-                echo "<script>alert('申請成功，系統將自動跳轉至主頁面');location.href='/EasyMVC/login/hello/123';</script>";
+                echo "<script>alert('申請成功，系統將自動跳轉至主頁面');location.href='/EasyMVC/repice/hello';</script>";
             }
         }
         if(isset($_POST["login"])){
-            header("location: /EasyMVC/login/hello/123");
+            header("location: /EasyMVC/login/hello");
         }
     }
     

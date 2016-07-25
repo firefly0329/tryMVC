@@ -19,30 +19,7 @@
     <body>
         <div id="wrapper" class="cf"><!--wrapper-->
             <div id="cooking" class="grid-12 omega relative">
-        <!--有幾筆資料就產生幾頁-->
-<!--<?php while($row = mysql_fetch_assoc($result)): ?>-->
-<!--    <article class="grid-12 omega bgc-1" data-page="1">-->
-        
-<!--        <div class="grid-6">-->
-<!--            <img src="image/<?php echo $row['picture']; ?>" class="img"></img>-->
-<!--        </div>-->
-        
-<!--        <secition class="grid-6">-->
-<!--            <div class="grid-12 omega pd-t-1">菜名:<?php echo $row['dishName']; ?></div>-->
-<!--            <div class="grid-12 omega pd-t-1">難易度:<?php echo $row['difficult']; ?></div>-->
-<!--            <div class="grid-12 omega pd-t-1">作者:<?php echo $row['writer']; ?></div>-->
-<!--            <div class="grid-12 omega pd-t-1">分類:<?php echo $row['class']; ?></div>-->
-<!--            <div class="grid-12 omega pd-t-1">分享時間:<?php echo $row['time']; ?></div>-->
-<!--            <div class="grid-12 omega pd-t-1">材料:<?php echo $row['stuff']; ?></div>-->
-<!--            <div class="grid-12 omega pd-t-1">製作過程:<br><?php echo $row['make']; ?></div>-->
-<!--            <div class="grid-12 omega pd-t-1">小提醒:<?php echo $row['ps']; ?></div>-->
-<!--            <div class="grid-12 omega pd-t-3">-->
-<!--                <a href="modifyCooking.php" class="">修改</a>-->
-<!--                <a href="modifyCooking.php" class="">刪除</a>-->
-<!--            </div>-->
-<!--        </secition>-->
-<!--    </article>-->
-<!--<?php endwhile ?>-->
+
             </div>
 
         </div><!--wrapper end-->

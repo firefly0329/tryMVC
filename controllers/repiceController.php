@@ -3,14 +3,8 @@ session_start();
 class repiceController extends Controller {
     
     function hello() {
-        // $user = $this->model("login_model");
-        // $user->name = $name;
         $this->view("Home/repice", $user);
-        // echo "Hello! $user->name";
         $this->mainProgram($user);
-        
-        
-
     }
     
     function mainProgram($user){
@@ -20,7 +14,7 @@ class repiceController extends Controller {
         }
         if(isset($_POST["login"])){
             unset($_SESSION['account']);
-            header("location: /EasyMVC/login/hello/1");
+            header("location: /EasyMVC/login/hello");
         }
     }
 }
