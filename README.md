@@ -1,1 +1,1 @@
-MVC架構(用老師上課交的EasyMVC改成)
+MVC架構(用老師上課教的EasyMVC改成)
