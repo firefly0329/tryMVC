@@ -1,20 +1,36 @@
 <?php 
 
-require_once('db.php');
+require_once('db2.php');
 
 class register_model{
     
     function getMember(){
+        $pdo = new db2;
+        $pdoLink = $pdo->linkConnection();
+        
         $grammer = "select * from member";
-        $db1 = new db;
-        $result = $db1->link($grammer);
+        $prepare = $pdoLink->prepare($grammer);
+        $prepare->execute();
+        $result = $prepare->fetchAll(PDO::FETCH_ASSOC);
+    
+        $pdo->closeConnection();
         return $result;
     }
     function setMember($id, $account, $password, $name){
+        $pdo = new db2;
+        $pdoLink = $pdo->linkConnection();
         $grammer = "insert into member (id, account, password, name) 
-            value($id, '$account', '$password', '$name')";
-        $db2 = new db;
-        $db2->link($grammer);
+            value(:id, :account, :password, :name)";
+        $prepare = $pdoLink->prepare($grammer);
+        $prepare->bindParam(':id', $id);
+        $prepare->bindParam(':account', $account);
+        $prepare->bindParam(':password', $password);
+        $prepare->bindParam(':name', $name);
+        $prepare->execute();
+        // $result = $prepare->fetchAll(PDO::FETCH_ASSOC);
+    
+        $pdo->closeConnection();
+        // return $result;
     }
 }
 

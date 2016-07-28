@@ -1,32 +1,62 @@
 <?php
-require_once('db.php');
+require_once('db2.php');
 
     class message_model{
-        function __construct(){
-            
-        }
         function getMessage($menuId){
-            $db1 = new db;
-            $grammer = "select * from message where menuId like $menuId order by time desc";
-            $result = $db1->link($grammer);
+            $pdo = new db2;
+            $pdoLink = $pdo->linkConnection();
+            
+            $grammer = "select * from message where menuId like :menuId order by time desc";
+            $prepare = $pdoLink->prepare($grammer);
+            $prepare->bindParam(':menuId', $menuId);
+            $prepare->execute();
+            $result = $prepare->fetchAll(PDO::FETCH_ASSOC);
+
+            $pdo->closeConnection();
             return $result;
         }
         function getMenu($menuId){
-            $db2 = new db;
-            $grammer = "select * from menu where id like $menuId";
-            $result = $db2->link($grammer);
+            $pdo = new db2;
+            $pdoLink = $pdo->linkConnection();
+            
+            $grammer = "select * from menu where id like :menuId";
+            $prepare = $pdoLink->prepare($grammer);
+            $prepare->bindParam(':menuId', $menuId);
+            $prepare->execute();
+            $result = $prepare->fetch(PDO::FETCH_ASSOC);
+            
+            // $result = $this->links($grammer);
+            $pdo->closeConnection();
             return $result;
         }
         function setMessage($messageWriter,$messageContent,$time,$letter){
-            $db3 = new db;
+            $pdo = new db2;
+            $pdoLink = $pdo->linkConnection();
+            
             $grammer = "insert into message (messageWriter, messageContent, time, menuId)
-                    values ('$messageWriter', '$messageContent', '$time', $letter )";
-            $db3->link($grammer);
+                    values (:messageWriter, :messageContent, :time, :letter )";
+            $prepare = $pdoLink->prepare($grammer);
+            $prepare->bindParam(':messageWriter', $messageWriter);
+            $prepare->bindParam(':messageContent', $messageContent);
+            $prepare->bindParam(':time', $time);
+            $prepare->bindParam(':letter', $letter);
+            $prepare->execute();
+            
+            $pdo->closeConnection();
+            // $this->links($grammer);
+            // return $result;
         }
         function deleteMessage($menuId){
-            $db4 = new db;
-            $grammer = "DELETE FROM `message` WHERE id like $menuId";
-            $db4->link($grammer);
+            $pdo = new db2;
+            $pdoLink = $pdo->linkConnection();
+            
+            $grammer = "DELETE FROM `message` WHERE id like :menuId";
+            $prepare = $pdoLink->prepare($grammer);
+            $prepare->bindParam(':menuId', $menuId);
+            $prepare->execute();
+            
+            $pdo->closeConnection();
+            // $this->links($grammer);
         }
         
         

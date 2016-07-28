@@ -31,7 +31,7 @@ class registerController extends Controller {
     
     //檢查帳號.名稱是否重複，並回傳最後一筆資料id
     function repeat($result){
-        while($row = mysql_fetch_assoc($result)){
+        foreach($result as $row){
             // var_dump($row);
             // echo $row["account"] ;
             if($_POST["account"] == $row["account"]){

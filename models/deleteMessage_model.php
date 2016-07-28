@@ -1,11 +1,19 @@
 <?php
-require_once('db.php');
+require_once('db2.php');
 class deleteMessage_model{
     
     function deleteMsg($messageId){
-        $grammer = "DELETE FROM `message` WHERE id like $messageId";
-        $db1 = new db;
-        $db1->link($grammer);
+        $pdo = new db2;
+        $pdoLink = $pdo->linkConnection();
+
+        $grammer = "DELETE FROM `message` WHERE id like :messageId";
+        $prepare = $pdoLink->prepare($grammer);
+        $prepare->bindParam(':messageId', $messageId);
+        $prepare->execute();
+        // $result = $prepare->fetchAll(PDO::FETCH_ASSOC);
+
+        $pdo->closeConnection();
+        return $result;
     }
 }
 ?>

@@ -1,22 +1,12 @@
 <?php 
-session_start();
 class repiceController extends Controller {
     
     function hello() {
-        $this->view("Home/repice", $user);
-        $this->mainProgram($user);
+        $user = $this->model("repice_model");
+        $unsetSESSION = $user->decision();
+        $this->view("Home/repice", $unsetSESSION);
     }
-    
-    function mainProgram($user){
-        if(isset($_POST["logout"])){
-            unset($_SESSION['account']);
-            echo "<script>alert('登出成功');location.href='/EasyMVC/repice/hello';</script>";
-        }
-        if(isset($_POST["login"])){
-            unset($_SESSION['account']);
-            header("location: /EasyMVC/login/hello");
-        }
-    }
+
 }
     
 ?>

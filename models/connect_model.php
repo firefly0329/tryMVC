@@ -1,19 +1,45 @@
 <?php 
-require_once('db.php');
+require_once('db2.php');
     class connect_model{
         function getAllMenu(){
-            $db1 = new db;
-            $result = $db1->link("select * from menu");
+            $pdo = new db2;
+            $pdoLink = $pdo->linkConnection();
+            
+            $grammer = "select * from menu";
+            $prepare = $pdoLink->prepare($grammer);
+            $prepare->execute();
+            $result = $prepare->fetchAll(PDO::FETCH_ASSOC);
+            
+            $pdo->closeConnection();
             return $result;
         }
         function getOnceMenu($class){
-            $db2 = new db;
-            $result = $db2->link("select * from menu where class like '$class'");
+            $pdo = new db2;
+            $pdoLink = $pdo->linkConnection();
+            
+            $grammer = "select * from menu where class like :class";
+            $prepare = $pdoLink->prepare($grammer);
+            $prepare->bindParam(':class', $class);
+            $prepare->execute();
+            $result = $prepare->fetchAll(PDO::FETCH_ASSOC);
+            // $this->db = null;
+            // $result = $this->links("select * from menu where class like '$class'");
+            $pdo->closeConnection();
             return $result;
         }
         function getMessage(){
-            $db2 = new db;
-            $result = $db2->link("select * from message order by time desc");
+            // $db = new PDO("mysql:host=localhost;dbname=recipe;port=3306", "root", "");
+            // $db->exec("SET CHARACTER SET utf8");
+            $pdo = new db2;
+            $pdoLink = $pdo->linkConnection();
+            
+            $grammer = "select * from message order by time desc";
+            $prepare = $pdoLink->prepare($grammer);
+            $prepare->execute();
+            $result = $prepare->fetchAll(PDO::FETCH_ASSOC);
+            // $this->db = null;         
+            // $result = $this->links("select * from message order by time desc");
+            $pdo->closeConnection();
             return $result;
         }
         

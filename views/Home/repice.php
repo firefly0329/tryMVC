@@ -1,4 +1,7 @@
 <?php 
+if($data == true){
+    echo "<script>alert('登出成功!!');location.href='/EasyMVC/repice/hello';</script>";
+}
 ?>
 
 

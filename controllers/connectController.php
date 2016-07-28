@@ -14,14 +14,16 @@ class connectController extends Controller {
   
         
         $totalPage = -1;
-        while($row = mysql_fetch_assoc($result)){
+        foreach($result as $row){
+        // while($row = mysql_fetch_assoc($result)){
             $totalPage++;
             
             // $grammer2 = "select * from message order by time desc";
             // $result2 = $db2->link($grammer2);
             $result2 = $user->getMessage();
             
-            while($row2 = mysql_fetch_assoc($result2)){
+            foreach($result2 as $row2){
+            // while($row2 = mysql_fetch_assoc($result2)){
                 if($row2['menuId'] == $row['id']){
                     $message .= sprintf("時間：%s　　作者：%s　　留言內容：%s<hr>",$row2['time'],$row2['messageWriter'],$row2['messageContent']);
                 }

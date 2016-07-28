@@ -2,7 +2,7 @@
 $result = $data[0];
 $result2 = $data[1];
 $munuId = $data[2];
-$row2 = mysql_fetch_assoc($result2);
+$row2 = $result2;
  ?>
 <html>
     <head>
@@ -34,7 +34,7 @@ $row2 = mysql_fetch_assoc($result2);
             <!--============= 留言 =============-->
             <article class="grid-12 pd-t-5">
                 <h2>留言內容</h2>
-                <?php while($row = mysql_fetch_assoc($result)){ ?>
+                <?php foreach( $result as $row){ ?>
                     <div class="cf">
                         <p class=""><?php echo "留言時間：{$row['time']}　　　作者：{$row['messageWriter']}　　　留言內容：{$row['messageContent']}"; ?></p>
                         

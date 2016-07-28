@@ -7,12 +7,13 @@ class deleteCookingController extends Controller {
     
     function hello($cookingId) {
         $user = $this->model("deleteCooking_model");
+
         // $user->name = $name;
 
         // 判斷是不是作者，是的話回傳true
         $result = $user->getMenu($cookingId);
-        $row = mysql_fetch_assoc($result);
-        if($_SESSION['account'] != $row['writer']){
+        // $row = mysql_fetch_assoc($result);
+        if($_SESSION['account'] != $result['writer']){
             echo false;
         }else{
             echo true;

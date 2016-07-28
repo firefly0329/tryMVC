@@ -1,10 +1,18 @@
 <?php
-require_once('db.php');
+require_once('db2.php');
 class deleteCooking_model{
     function getMenu($cookingId){
-        $db1 = new db;
-        $grammer = "select * from menu where id like $cookingId";
-        $result = $db1->link($grammer);
+        $pdo = new db2;
+        $pdoLink = $pdo->linkConnection();
+        
+        $grammer = "select * from menu where id like :cookingId";
+        $prepare = $pdoLink->prepare($grammer);
+        $prepare->bindParam(':cookingId', $cookingId);
+        $prepare->execute();
+        $result = $prepare->fetch(PDO::FETCH_ASSOC);
+
+        
+        $pdo->closeConnection();
         return $result;
     }
 }

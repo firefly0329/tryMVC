@@ -7,7 +7,7 @@ class loginController extends Controller {
         $user = $this->model("login_model");
         // $user->name = $name;
         $this->view("Home/login", $user);
-        // echo "Hello! $user->name";
+        // echo "hello! $user->name";
         $this->mainProgram($user);
     }
     
@@ -29,7 +29,7 @@ class loginController extends Controller {
     
     //登入檢查
     function login($result){
-        while($row = mysql_fetch_assoc($result)){
+        foreach($result as $row){
             if($row['account'] == $_POST['account'] && $row['password'] == $_POST['password']){
                 echo $_SESSION['account'] = $row['name'];
                 echo "<script>alert('登入成功，系統將自動跳轉至主頁面');location.href='/EasyMVC/repice/hello/123';</script>";

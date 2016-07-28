@@ -5,6 +5,10 @@ class App {
     public function __construct() {
         $url = $this->parseUrl();
         
+        if(is_null($url)){
+            header("location:/EasyMVC/repice/linkViewModel");
+        }
+        
         $controllerName = "{$url[0]}Controller";
         
         require_once "controllers/$controllerName.php";

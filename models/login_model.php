@@ -1,11 +1,17 @@
 <?php
-require_once('db.php');
+require_once('db2.php');
 class login_model{
     
     function getMember(){
+        $pdo = new db2;
+        $pdoLink = $pdo->linkConnection();
+        
         $grammer = "select * from member";
-        $db1 = new db;
-        $result = $db1->link($grammer);
+        $prepare = $pdoLink->prepare($grammer);
+        $prepare->execute();
+        $result = $prepare->fetchAll(PDO::FETCH_ASSOC);
+    
+        $pdo->closeConnection();
         return $result;
     }
 }

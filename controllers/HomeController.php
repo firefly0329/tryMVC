@@ -10,7 +10,7 @@ class HomeController extends Controller {
         $user = $this->model("User");
         $user->name = $name;
         $this->view("Home/hello", $user);
-        // echo "Hello! $user->name";
+        // echo "hello! $user->name";
     }
 }
 

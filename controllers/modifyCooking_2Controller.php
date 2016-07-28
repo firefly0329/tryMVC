@@ -5,7 +5,7 @@ class modifyCooking_2Controller extends Controller{
     function hello($menuId){
         $user = $this->model("modifyCooking_2_model");
         $result = $user->getMenu($menuId);
-        $row = mysql_fetch_assoc($result);
+        $row = $result;
         if($_SESSION['account'] != $row['writer']){
             echo "<script>alert('您不是本篇作者');location.href='/EasyMVC/repice/hello';</script>";
         }

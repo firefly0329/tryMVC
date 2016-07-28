@@ -31,7 +31,7 @@ class newCookingController extends Controller{
         }
     }
     function repeat($result){
-        while($row = mysql_fetch_assoc($result)){
+        foreach($result as $row){
             if($lastId < $row["id"]){
                 $lastId = $row["id"];
                 
