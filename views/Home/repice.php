@@ -1,7 +1,13 @@
 <?php 
+session_start();
 if($data == true){
     echo "<script>alert('登出成功!!');location.href='/EasyMVC/repice/guide';</script>";
 }
+if(isset($_SESSION['alert'])){
+    echo "<script>alert('".$_SESSION['alert']."');</script>";
+    unset($_SESSION['alert']);
+}
+
 ?>
 
 
@@ -17,7 +23,9 @@ if($data == true){
         <link rel="stylesheet" type="text/css" href="/EasyMVC/fontello/css/fontello.css" media="screen">
         
         <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0">
-        
+        <?PHP
+            
+        ?>
     </head>
     <body>
         <div id="wrapper" class="cf"><!--wrapper-->

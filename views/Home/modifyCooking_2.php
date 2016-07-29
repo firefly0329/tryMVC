@@ -1,6 +1,8 @@
 <?php
 $row = $data[0];
-// $row = mysql_fetch_assoc($result);
+if(isset($data[1])){
+    echo "<script>alert('修改成功!!');location.href='/EasyMVC/repice/guide';</script>";
+}
 
 ?>
 

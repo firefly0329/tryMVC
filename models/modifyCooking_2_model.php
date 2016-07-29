@@ -1,6 +1,33 @@
 <?php
+session_start();
 require_once('db2.php');
 class modifyCooking_2_model{
+    
+    function decision($menuId){
+        $row = $this->getMenu($menuId);
+        if($_SESSION['account'] != $row['writer']){
+            echo "<script>alert('您不是本篇作者');location.href='/EasyMVC/repice/guide';</script>";
+        }
+        
+        if(isset($_POST["submit"])){
+            $imgId = $menuId . substr(strrchr($_FILES['file']['name'], '.'), 0);
+            move_uploaded_file($_FILES['file']['tmp_name'],'image/'.$imgId);
+            $time = date("Y/m/d");
+            //判斷有沒有修改圖片
+            if(!$_FILES["file"]["tmp_name"]){
+                $imgId = $row['picture'];
+            }
+            //修改
+            $make = $_POST['make'];//\n轉<br>
+            $make = nl2br($make);
+            $grammer = $this->changeMenu($menuId,$_POST['dishName'],$_SESSION['account'],
+                $imgId,$_POST['difficult'],$_POST['class'],$time,$make,$_POST['ps'],
+                $_POST['stuff'],$menuId);
+            return true;
+            // echo "<script>alert('修改成功!!');location.href='/EasyMVC/repice/guide';</script>";
+        }
+    }
+    
     function getMenu($cookingId){
         $pdo = new db2;
         $pdoLink = $pdo->linkConnection();

@@ -1,15 +1,5 @@
 <!--會員登入-->
-<?php
-    if(isset($data)){
-        if($data == true){
-            echo "<script>alert('登入成功!!');location.href='/EasyMVC/repice/guide'</script>";
-        }else{
-            echo "請確認帳號密碼";
-        }
-    }
-    
-?>
-
+<?PHPsession_start(); ?>
 <!DOCTYPE html>
 <html>
     <head>
@@ -30,4 +20,9 @@
         <input type="submit" value="訪客瀏覽" name="visitor" style="margin:40px 0 0 20px;"/>
         </form>
     </body>
+    <?php
+    if(strlen($data) > 0){
+        echo $data;
+    }
+?>
 </html>

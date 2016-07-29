@@ -1,4 +1,7 @@
 <?php
+if(isset($data)){
+    echo "<script>alert('新增完成');location.href='/EasyMVC/repice/guide';</script>";
+}
 ?>
 
 <!DOCTYPE html>

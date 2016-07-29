@@ -1,6 +1,37 @@
 <?php
+session_start();
 require_once('db2.php');
 class newCooking_model{
+    
+    function decision(){
+        if(!isset($_SESSION['account'])){
+            echo "<script>alert('請先登入');location.href='/EasyMVC/login/guide';</script>";
+        }
+        
+        if(isset($_POST["submit"])){
+            $result = $this->getMenuId();
+            foreach($result as $row){
+                if($lastId < $row["id"]){
+                    $lastId = $row["id"];
+                }
+            }
+            $lastId = $lastId+1;
+            $imgId = $lastId . substr(strrchr($_FILES['file']['name'], '.'), 0);
+            move_uploaded_file($_FILES['file']['tmp_name'],'image/'.$imgId);
+            //time
+            date_default_timezone_set('Asia/Taipei');
+            $time = date("Y-m-d H:i:s");
+            //\n轉<br>
+            $make = $_POST['make'];
+            $make = nl2br($make);
+            $this->setMenu($lastId,$_POST['dishName'],$_SESSION['account'],$imgId
+            ,$_POST['difficult'],$_POST['class'],$time,$make,$_POST['ps'],$_POST['stuff']);
+            // echo "<script>alert('新增完成');location.href='/EasyMVC/repice/guide';</script>";
+            return true;
+        }
+    }
+    
+    
     function getMenuId(){
         $pdo = new db2;
         $pdoLink = $pdo->linkConnection();

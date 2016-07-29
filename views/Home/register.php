@@ -1,5 +1,10 @@
 <!--申請會員-->
 <?php 
+if($data = "checkRegister"){
+    $data = null;
+    echo "<script>alert('申請成功，系統將自動跳轉至主頁面');location.href='/EasyMVC/repice/guide';</script>";
+}
+
 ?>
 <!DOCTYPE html>
 <html>

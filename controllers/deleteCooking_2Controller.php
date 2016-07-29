@@ -9,7 +9,7 @@ class deleteCooking_2Controller extends Controller {
 
         // delete
         $result = $user->deleteMenu($cookingId);
-        echo "<script>alert('刪除成功!!');</script>";
+        // echo "<script>alert('刪除成功!!');</script>";
         header("location: /EasyMVC/repice/guide");
         
     }

@@ -1,14 +1,23 @@
 <?php 
-
+session_start();
 
 class loginController extends Controller {
     
     function guide() {
         $user = $this->model("login_model");
        
-        $loginCheck = $this->mainProgram($user);
+        $loginCheck = $user->decision();
+        
+        echo $loginCheck;
 
-        $this->view("Home/login", $loginCheck);
+        if($loginCheck == ""){
+            $this->view("Home/login", $loginCheck);
+        }else if(!$loginCheck){
+            $this->view("Home/login", $loginCheck);
+        }else{
+            header("location: /EasyMVC/repice/guide");
+        }
+        
         
        
     }

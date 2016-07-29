@@ -7,10 +7,12 @@ class login_model{
         $pdo = new db2;
         $pdoLink = $pdo->linkConnection();
         
-        $grammer = "select * from member";
+        $grammer = "select * from member where account = :account and password = :password";
         $prepare = $pdoLink->prepare($grammer);
+        $prepare->bindParam(':account', $_POST['account']);
+        $prepare->bindParam(':password', $_POST['password']);
         $prepare->execute();
-        $result = $prepare->fetchAll(PDO::FETCH_ASSOC);
+        $result = $prepare->fetch(PDO::FETCH_ASSOC);
     
         $pdo->closeConnection();
         // echo var_dump($result[1]);
@@ -19,23 +21,27 @@ class login_model{
     
     function decision(){
         //登入檢查
-        
-        $result = $this->getMember();
-        $check = false;
-        foreach($result as $row){
-            // echo $row['account'];
-            if($row['account'] == $_POST['account'] && $row['password'] == $_POST['password']){
-                $_SESSION['account'] = $row['name'];
-                $check = true;
+        if($_POST['login']){
+            $result = $this->getMember();
+            if($result){
+                $_SESSION['account'] = $result['name'];
+                $_SESSION['alert'] = "登入成功!!";
+                return true;
+            }else{
+                return false;
             }
+        }else{
+            return "";
         }
 
-        return $check;
-            
         
-        
-        
-        
+        // if(isset($_POST["register"])){
+        //     header("location: /EasyMVC/register/guide");
+        // }
+        // if(isset($_POST["visitor"])){
+        //     header("location: /EasyMVC/repice/guide");
+        // }
+
     }
 }
 
