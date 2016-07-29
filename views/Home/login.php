@@ -1,5 +1,13 @@
 <!--會員登入-->
 <?php
+    if(isset($data)){
+        if($data == true){
+            echo "<script>alert('登入成功!!');location.href='/EasyMVC/repice/hello'</script>";
+        }else{
+            echo "請確認帳號密碼";
+        }
+    }
+    
 ?>
 
 <!DOCTYPE html>

@@ -1,22 +1,23 @@
 <?php 
-session_start();
+
 
 class loginController extends Controller {
     
     function hello() {
         $user = $this->model("login_model");
-        // $user->name = $name;
-        $this->view("Home/login", $user);
-        // echo "hello! $user->name";
-        $this->mainProgram($user);
+       
+        $loginCheck = $this->mainProgram($user);
+
+        $this->view("Home/login", $loginCheck);
+        
+       
     }
     
     function mainProgram($user){
         //主程式
         if(isset($_POST["login"])){
-            $result = $user->getMember();
-            
-            echo $this->login($result); //登入檢查
+            $loginCheck = $user->decision();
+            // echo gettype($loginCheck);
         }
         
         if(isset($_POST["register"])){
@@ -25,19 +26,10 @@ class loginController extends Controller {
         if(isset($_POST["visitor"])){
             header("location: /EasyMVC/repice/hello");
         }
+        return $loginCheck;
     }
     
-    //登入檢查
-    function login($result){
-        foreach($result as $row){
-            if($row['account'] == $_POST['account'] && $row['password'] == $_POST['password']){
-                echo $_SESSION['account'] = $row['name'];
-                echo "<script>alert('登入成功，系統將自動跳轉至主頁面');location.href='/EasyMVC/repice/hello/123';</script>";
-            }
-        }
-        // echo "<script>alert('登入成功')</script>";
-        return "請檢查帳號密碼!!!!!!!";
-    }  
+      
 }
 
 
