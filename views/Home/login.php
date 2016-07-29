@@ -2,7 +2,7 @@
 <?php
     if(isset($data)){
         if($data == true){
-            echo "<script>alert('登入成功!!');location.href='/EasyMVC/repice/hello'</script>";
+            echo "<script>alert('登入成功!!');location.href='/EasyMVC/repice/guide'</script>";
         }else{
             echo "請確認帳號密碼";
         }

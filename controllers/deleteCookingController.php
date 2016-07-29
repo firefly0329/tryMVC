@@ -5,7 +5,7 @@ header("Content-Type:text/html; charset=utf-8");
 
 class deleteCookingController extends Controller {
     
-    function hello($cookingId) {
+    function guide($cookingId) {
         $user = $this->model("deleteCooking_model");
 
         // $user->name = $name;

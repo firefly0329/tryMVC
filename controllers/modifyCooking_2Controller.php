@@ -2,12 +2,12 @@
 header("Content-Type:text/html; charset=utf-8");
 session_start();
 class modifyCooking_2Controller extends Controller{
-    function hello($menuId){
+    function guide($menuId){
         $user = $this->model("modifyCooking_2_model");
         $result = $user->getMenu($menuId);
         $row = $result;
         if($_SESSION['account'] != $row['writer']){
-            echo "<script>alert('您不是本篇作者');location.href='/EasyMVC/repice/hello';</script>";
+            echo "<script>alert('您不是本篇作者');location.href='/EasyMVC/repice/guide';</script>";
         }
         $row['make'] = preg_replace('/<br\\s*?\/??>/i','',$row['make']);
         
@@ -33,7 +33,7 @@ class modifyCooking_2Controller extends Controller{
             $grammer = $user->changeMenu($menuId,$_POST['dishName'],$_SESSION['account'],
                 $imgId,$_POST['difficult'],$_POST['class'],$time,$make,$_POST['ps'],
                 $_POST['stuff'],$menuId);
-            echo "<script>alert('修改成功!!');location.href='/EasyMVC/repice/hello';</script>";
+            echo "<script>alert('修改成功!!');location.href='/EasyMVC/repice/guide';</script>";
         }
     }
 }

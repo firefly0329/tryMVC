@@ -4,10 +4,10 @@
     
 class messageController extends Controller {
     
-    function hello($letter) {
+    function guide($letter) {
         //判斷有無登入
         if(!isset($_SESSION['account'])){
-        echo "<script>alert('請先登入');location.href='/EasyMVC/login/hello';</script>";
+        echo "<script>alert('請先登入');location.href='/EasyMVC/login/guide';</script>";
         }
         $user = $this->model("message_model");
         // 傳值到view
@@ -28,7 +28,7 @@ class messageController extends Controller {
             $_POST['message'] = str_replace("'","&#39",$_POST['message']);
             //寫入資料庫
             $user->setMessage($_SESSION['account'],$_POST['message'],$time,$letter);
-            echo "<script>alert('留言成功!!!');location.href='/EasyMVC/message/hello/$letter';</script>";
+            echo "<script>alert('留言成功!!!');location.href='/EasyMVC/message/guide/$letter';</script>";
         }
         //主程式--刪除留言
         if(isset($_POST['deleteMessageBtn'])){

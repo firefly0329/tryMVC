@@ -8,7 +8,7 @@ class repice_model{
         }
         if(isset($_POST["login"])){
             unset($_SESSION['account']);
-            header("location: /EasyMVC/login/hello");
+            header("location: /EasyMVC/login/guide");
         }
     }
 }

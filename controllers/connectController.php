@@ -1,7 +1,7 @@
 <?php 
 class connectController extends Controller {
     
-    function hello($letter) {
+    function guide($letter) {
         $user = $this->model("connect_model");
 
         if($letter == "全部"){
@@ -49,7 +49,7 @@ class connectController extends Controller {
                     <div class='grid-12 omega pd-t-1'>製作過程:<br>%s</div>
                     <div class='grid-12 omega pd-t-1'>小提醒:<br>%s</div>
                     <div class='grid-12 omega pd-t-3'>
-                        <a href='/EasyMVC/modifyCooking_2/hello/%s'>修改</a>
+                        <a href='/EasyMVC/modifyCooking_2/guide/%s'>修改</a>
                         <a onclick='click_delete(%s)'>刪除</a>
                     </div>
                     
@@ -57,7 +57,7 @@ class connectController extends Controller {
                 <div class='grid-12 omega pd-t-1 message cf pd-lr-5'>
                     <h1 class=''>留言</h1><br>
                     <p class=''>%s</p>
-                    <br><br><a href='/EasyMVC/message/hello/%s'>新增/刪除留言</a>
+                    <br><br><a href='/EasyMVC/message/guide/%s'>新增/刪除留言</a>
                 </div>
             </article>"
             ,$row['picture'], $row['dishName'], $difficult, $row['writer'], 

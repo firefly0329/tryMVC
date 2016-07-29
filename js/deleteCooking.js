@@ -1,11 +1,11 @@
 function click_delete(x){
-            url = "/EasyMVC/deleteCooking/hello/" + x;
+            url = "/EasyMVC/deleteCooking/guide/" + x;
             // alert(url);
 			$.get(url, function(data){
 				// alert(data);
 				if(data == true){
 				    if(confirm('您確定要刪除本篇文章?')){
-				        url = "/EasyMVC/deleteCooking_2/hello/" + x;
+				        url = "/EasyMVC/deleteCooking_2/guide/" + x;
 				        alert('刪除成功!!');
 				        location.href = url;
 				    }

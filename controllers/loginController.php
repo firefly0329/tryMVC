@@ -3,7 +3,7 @@
 
 class loginController extends Controller {
     
-    function hello() {
+    function guide() {
         $user = $this->model("login_model");
        
         $loginCheck = $this->mainProgram($user);
@@ -21,10 +21,10 @@ class loginController extends Controller {
         }
         
         if(isset($_POST["register"])){
-            header("location: /EasyMVC/register/hello");
+            header("location: /EasyMVC/register/guide");
         }
         if(isset($_POST["visitor"])){
-            header("location: /EasyMVC/repice/hello");
+            header("location: /EasyMVC/repice/guide");
         }
         return $loginCheck;
     }

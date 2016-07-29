@@ -51,7 +51,7 @@ $row2 = $result2;
                 </form>
             </article>
             
-            <a href="/EasyMVC/repice/hello/1" class="fix">回主頁</a>
+            <a href="/EasyMVC/repice/guide" class="fix">回主頁</a>
             
         </div>
 
@@ -59,7 +59,7 @@ $row2 = $result2;
         <script>
             function deleteMessage(x,y){
                 if(confirm('您確定要刪除本留言?')){
-                    url = "/EasyMVC/deleteMessage/hello/"+ x +"/" + y;
+                    url = "/EasyMVC/deleteMessage/guide/"+ x +"/" + y;
                     // alert(url);
                     alert("刪除成功");
                     location.href = url;

@@ -2,7 +2,7 @@
 session_start();
 class registerController extends Controller {
     
-    function hello() {
+    function guide() {
         $user = $this->model("register_model");
         // $user->name = $name;
         $this->view("Home/register", $user);
@@ -21,11 +21,11 @@ class registerController extends Controller {
                 $user->setMember($lastId, $_POST['account'], $_POST['password'], $_POST['name']);
                 
                 $_SESSION['account'] = $_POST['name'];
-                echo "<script>alert('申請成功，系統將自動跳轉至主頁面');location.href='/EasyMVC/repice/hello';</script>";
+                echo "<script>alert('申請成功，系統將自動跳轉至主頁面');location.href='/EasyMVC/repice/guide';</script>";
             }
         }
         if(isset($_POST["login"])){
-            header("location: /EasyMVC/login/hello");
+            header("location: /EasyMVC/login/guide");
         }
     }
     

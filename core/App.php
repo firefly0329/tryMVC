@@ -6,7 +6,7 @@ class App {
         $url = $this->parseUrl();
         
         if(is_null($url)){
-            header("location:/EasyMVC/repice/hello");
+            header("location:/EasyMVC/repice/guide");
         }
         
         $controllerName = "{$url[0]}Controller";

@@ -3,9 +3,9 @@ header("Content-Type:text/html; charset=utf-8");
 session_start();
 
 class newCookingController extends Controller{
-    function hello(){
+    function guide(){
         if(!isset($_SESSION['account'])){
-            echo "<script>alert('請先登入');location.href='/EasyMVC/login/hello';</script>";
+            echo "<script>alert('請先登入');location.href='/EasyMVC/login/guide';</script>";
         }
         $user = $this->model("newCooking_model");
         $this->view("Home/newCooking");
@@ -27,7 +27,7 @@ class newCookingController extends Controller{
             $make = nl2br($make);
             $user->setMenu($lastId,$_POST['dishName'],$_SESSION['account'],$imgId
             ,$_POST['difficult'],$_POST['class'],$time,$make,$_POST['ps'],$_POST['stuff']);
-            echo "<script>alert('新增完成');location.href='/EasyMVC/repice/hello';</script>";
+            echo "<script>alert('新增完成');location.href='/EasyMVC/repice/guide';</script>";
         }
     }
     function repeat($result){
