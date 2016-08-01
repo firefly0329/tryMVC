@@ -21,8 +21,8 @@
         </form>
     </body>
     <?php
-    if(strlen($data) > 0){
-        echo $data;
+    if(!$data){
+        echo "請確認帳號密碼";
     }
 ?>
 </html>

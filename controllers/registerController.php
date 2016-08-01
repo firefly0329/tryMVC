@@ -5,8 +5,10 @@ class registerController extends Controller {
     function guide() {
         $user = $this->model("register_model");
         $message = $user->decision();
-        if($message = "login"){
-            // header("location: /EasyMVC/login/guide");
+        if($message == "login"){
+            header("location: /EasyMVC/login/guide");
+        }else if($message == "checkRegister"){
+            // $message = "";
         }
         $this->view("Home/register", $message);
         // $this->mainProgram($user);

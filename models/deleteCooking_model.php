@@ -5,7 +5,7 @@ class deleteCooking_model{
         $pdo = new db2;
         $pdoLink = $pdo->linkConnection();
         
-        $grammer = "select * from menu where id like :cookingId";
+        $grammer = "SELECT * FROM `menu` WHERE `id` LIKE :cookingId";
         $prepare = $pdoLink->prepare($grammer);
         $prepare->bindParam(':cookingId', $cookingId);
         $prepare->execute();

@@ -5,7 +5,8 @@ class newCooking_model{
     
     function decision(){
         if(!isset($_SESSION['account'])){
-            echo "<script>alert('請先登入');location.href='/EasyMVC/login/guide';</script>";
+            // echo "<script>alert('請先登入');location.href='/EasyMVC/login/guide';</script>";
+            return "notLogin";
         }
         
         if(isset($_POST["submit"])){
@@ -27,7 +28,7 @@ class newCooking_model{
             $this->setMenu($lastId,$_POST['dishName'],$_SESSION['account'],$imgId
             ,$_POST['difficult'],$_POST['class'],$time,$make,$_POST['ps'],$_POST['stuff']);
             // echo "<script>alert('新增完成');location.href='/EasyMVC/repice/guide';</script>";
-            return true;
+            return "OK";
         }
     }
     
@@ -48,7 +49,7 @@ class newCooking_model{
         $pdo = new db2;
         $pdoLink = $pdo->linkConnection();
         
-        $grammer = "insert into menu (`id`, `dishName`, `writer`, `picture`, `difficult`, `class`, `time`, `make`, `ps`, `stuff`) 
+        $grammer = "INSERT INTO `menu` (`id`, `dishName`, `writer`, `picture`, `difficult`, `class`, `time`, `make`, `ps`, `stuff`) 
                             value(:id, :dishName, :writer, :picture, :difficult, :class, :time, :make, :ps, :stuff)";
 
         // $grammer = "select id from menu";

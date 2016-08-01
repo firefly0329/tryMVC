@@ -6,10 +6,11 @@ class modifyCooking_2_model{
     function decision($menuId){
         $row = $this->getMenu($menuId);
         if($_SESSION['account'] != $row['writer']){
-            echo "<script>alert('您不是本篇作者');location.href='/EasyMVC/repice/guide';</script>";
+            // echo "<script>alert('您不是本篇作者');location.href='/EasyMVC/repice/guide';</script>";
+            return "notWrite";
         }
         
-        if(isset($_POST["submit"])){
+        if(isset($_POST["submitModify"])){
             $imgId = $menuId . substr(strrchr($_FILES['file']['name'], '.'), 0);
             move_uploaded_file($_FILES['file']['tmp_name'],'image/'.$imgId);
             $time = date("Y/m/d");
@@ -23,7 +24,7 @@ class modifyCooking_2_model{
             $grammer = $this->changeMenu($menuId,$_POST['dishName'],$_SESSION['account'],
                 $imgId,$_POST['difficult'],$_POST['class'],$time,$make,$_POST['ps'],
                 $_POST['stuff'],$menuId);
-            return true;
+            return "OK";
             // echo "<script>alert('修改成功!!');location.href='/EasyMVC/repice/guide';</script>";
         }
     }
@@ -32,7 +33,7 @@ class modifyCooking_2_model{
         $pdo = new db2;
         $pdoLink = $pdo->linkConnection();
         
-        $grammer = "select * from menu where id = :cookingId";
+        $grammer = "SELECT * FROM `menu` WHERE `id` = :cookingId";
         $prepare = $pdoLink->prepare($grammer);
         $prepare->bindParam(':cookingId', $cookingId);
         $prepare->execute();
@@ -45,9 +46,9 @@ class modifyCooking_2_model{
         $pdo = new db2;
         $pdoLink = $pdo->linkConnection();
         
-        $grammer = "UPDATE menu SET id=:id,`dishName`=:dishName,
+        $grammer = "UPDATE `menu` SET `id`=:id,`dishName`=:dishName,
         `writer`=:writer,`picture`=:picture,`difficult`=:difficult,`class`=:class,
-        `time`=:time,`make`=:make,`ps`=:ps,`stuff`=:stuff WHERE id like :id";
+        `time`=:time,`make`=:make,`ps`=:ps,`stuff`=:stuff WHERE `id` LIKE :id";
 
         $prepare = $pdoLink->prepare($grammer);
         $prepare->bindParam(':id', $id);

@@ -7,7 +7,7 @@ require_once('db2.php');
             $pdo = new db2;
             $pdoLink = $pdo->linkConnection();
             
-            $grammer = "DELETE FROM menu where id like :cookingId";
+            $grammer = "DELETE FROM `menu` WHERE `id` LIKE :cookingId";
             $prepare = $pdoLink->prepare($grammer);
             $prepare->bindParam(':cookingId', $cookingId);
             $prepare->execute();

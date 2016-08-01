@@ -6,6 +6,8 @@ class modifyCooking_2Controller extends Controller{
         $user = $this->model("modifyCooking_2_model");
         
         $row = $user->getMenu($menuId);
+        
+        $checkModify = "";
         $checkModify = $user->decision($menuId);
         
         $this->view("Home/modifyCooking_2",Array($row,$checkModify));

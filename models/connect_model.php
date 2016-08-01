@@ -17,7 +17,7 @@ require_once('db2.php');
             $pdo = new db2;
             $pdoLink = $pdo->linkConnection();
             
-            $grammer = "select * from menu where class like :class";
+            $grammer = "SELECT * FROM `menu` WHERE `class` LIKE :class";
             $prepare = $pdoLink->prepare($grammer);
             $prepare->bindParam(':class', $class);
             $prepare->execute();
@@ -33,7 +33,7 @@ require_once('db2.php');
             $pdo = new db2;
             $pdoLink = $pdo->linkConnection();
             
-            $grammer = "select * from message order by time desc";
+            $grammer = "SELECT * FROM `message` ORDER BY `time` DESC";
             $prepare = $pdoLink->prepare($grammer);
             $prepare->execute();
             $result = $prepare->fetchAll(PDO::FETCH_ASSOC);

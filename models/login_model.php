@@ -7,7 +7,7 @@ class login_model{
         $pdo = new db2;
         $pdoLink = $pdo->linkConnection();
         
-        $grammer = "select * from member where account = :account and password = :password";
+        $grammer = "SELECT * FROM `member` WHERE `account` = :account and `password` = :password";
         $prepare = $pdoLink->prepare($grammer);
         $prepare->bindParam(':account', $_POST['account']);
         $prepare->bindParam(':password', $_POST['password']);
@@ -26,12 +26,12 @@ class login_model{
             if($result){
                 $_SESSION['account'] = $result['name'];
                 $_SESSION['alert'] = "登入成功!!";
-                return true;
+                return "1";
             }else{
                 return false;
             }
         }else{
-            return "";
+            return "2";
         }
 
         

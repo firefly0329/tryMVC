@@ -6,7 +6,7 @@ require_once('db2.php');
             $pdo = new db2;
             $pdoLink = $pdo->linkConnection();
             
-            $grammer = "select * from message where menuId like :menuId order by time desc";
+            $grammer = "SELECT * FROM `message` WHERE `menuId` LIKE :menuId ORDER BY `time` DESC";
             $prepare = $pdoLink->prepare($grammer);
             $prepare->bindParam(':menuId', $menuId);
             $prepare->execute();
@@ -19,7 +19,7 @@ require_once('db2.php');
             $pdo = new db2;
             $pdoLink = $pdo->linkConnection();
             
-            $grammer = "select * from menu where id like :menuId";
+            $grammer = "SELECT * from `menu` WHERE `id` LIKE :menuId";
             $prepare = $pdoLink->prepare($grammer);
             $prepare->bindParam(':menuId', $menuId);
             $prepare->execute();
@@ -33,7 +33,7 @@ require_once('db2.php');
             $pdo = new db2;
             $pdoLink = $pdo->linkConnection();
             
-            $grammer = "insert into message (messageWriter, messageContent, time, menuId)
+            $grammer = "INSERT INTO `message` (`messageWriter`, `messageContent`, `time`, `menuId`)
                     values (:messageWriter, :messageContent, :time, :letter )";
             $prepare = $pdoLink->prepare($grammer);
             $prepare->bindParam(':messageWriter', $messageWriter);

@@ -1,6 +1,9 @@
 <?php
-if(isset($data)){
+if($data == "OK"){
     echo "<script>alert('新增完成');location.href='/EasyMVC/repice/guide';</script>";
+}
+if($data == "notLogin"){
+    echo "<script>alert('請先登入');location.href='/EasyMVC/login/guide';</script>";
 }
 ?>
 

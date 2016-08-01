@@ -1,8 +1,13 @@
 <?php
 $row = $data[0];
-if(isset($data[1])){
+// echo $data[1];
+if($data[1] == "OK"){
     echo "<script>alert('修改成功!!');location.href='/EasyMVC/repice/guide';</script>";
 }
+if($data[1] == "notWrite"){
+    echo "<script>alert('您不是本篇作者');location.href='/EasyMVC/repice/guide';</script>";
+}
+
 
 ?>
 
@@ -70,7 +75,7 @@ if(isset($data[1])){
             </div>
             
             <div class="w-100">
-                <input type="submit" value="確認送出" name="submit"/>
+                <input type="submit" value="確認送出" name="submitModify"/>
             </div>
             
         </form>

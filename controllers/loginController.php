@@ -8,25 +8,18 @@ class loginController extends Controller {
        
         $loginCheck = $user->decision();
         
-        echo $loginCheck;
+        // echo $loginCheck;
 
-        if($loginCheck == ""){
+        if($loginCheck == "2"){
             $this->view("Home/login", $loginCheck);
         }else if(!$loginCheck){
             $this->view("Home/login", $loginCheck);
-        }else{
+        }else if($loginCheck == "1"){
             header("location: /EasyMVC/repice/guide");
         }
         
-        
-       
-    }
-    
-    function mainProgram($user){
-        //主程式
         if(isset($_POST["login"])){
             $loginCheck = $user->decision();
-            // echo gettype($loginCheck);
         }
         
         if(isset($_POST["register"])){
@@ -35,8 +28,11 @@ class loginController extends Controller {
         if(isset($_POST["visitor"])){
             header("location: /EasyMVC/repice/guide");
         }
-        return $loginCheck;
+        
+        
+       
     }
+
     
       
 }
